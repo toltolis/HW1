@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jesus</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+</head>
+<body class="p-3">
+<h1>白癡記帳</h1>
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        收入使用教學
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>注意!!!</strong> 請注意金額類別是否正確，輸入後不能更改!!!
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        支出使用教學
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>注意!!!</strong> 請注意金額類別是否正確，輸入後不能更改!!!
+    </div>
+  </div>
+</div>
+<h2>花費</h2>
+<p>
+  <div class="input-group" style="width: 200px;">
+    <div class="input-group-prepend">
+      <span class="input-group-text">日期</span>
+    </div>
+    <input type="text" aria-label="" class="form-control" id="month">
+    <input type="text" aria-label="" class="form-control" id="day">
+  </div>
+    <div class="dropdown">
+        <div class="col-4" style="width: 150px;">
+            <select class="form-control" id="type">
+                <option value="食物">食物</option>
+                <option value="交通">交通</option>
+                <option value="玩樂">玩樂</option>
+                <option value="其他">其他</option>
+            </select>
+        </div>
+    </div>
+    <div class="input-group mb-3" style="width: 200px;">
+        <div class="input-group-prepend">
+          <span class="input-group-text">金額</span>
+        </div>
+        <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" id="money">
+    </div>
+    <div class="input-group mb-3" style="width: 200px;">
+        <div class="input-group-prepend">
+          <span class="input-group-text">備註</span>
+        </div>
+        <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" id="remark">
+    </div>
+    <button type="button" class="btn btn-primary" id="B1">確認</button>    
+</p>
+
+<h2>存錢</h2>
+<p>
+  <div class="input-group" style="width: 200px;">
+    <div class="input-group-prepend">
+      <span class="input-group-text">日期</span>
+    </div>
+    <input type="text" aria-label="" class="form-control" id="month1">
+    <input type="text" aria-label="" class="form-control" id="day1">
+  </div>
+    <div class="dropdown">
+        <div class="col-4" style="width: 150px;">
+            <select class="form-control" id="type1">
+                <option value="薪水">薪水</option>
+                <option value="撿到">撿到</option>
+                <option value="發票">發票</option>
+                <option value="獎金">獎金</option>
+                <option value="其他">其他</option>
+            </select>
+        </div>
+    </div>
+    <div class="input-group mb-3" style="width:  200px;">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">金額</span>
+        </div>
+        <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" id="money1">
+      </div>
+      <div class="input-group mb-3" style="width: 200px;">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">備註</span>
+        </div>
+        <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" id="remark1">
+      </div>
+    <button type="button" class="btn btn-primary" id="B2">確認</button>    
+</p>
+<h3>總資產:<span id='a'></span></h3>
+
+<h4>明細</h4>
+<table id="mytable">
+</table>
+</p>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js" integrity="sha384-lpyLfhYuitXl2zRZ5Bn2fqnhNAKOAaM/0Kr9laMspuaMiZfGmfwRNFh8HlMy49eQ" crossorigin="anonymous"></script>
+<script>
+  var a = 0;
+  document.getElementById('a').textContent = a; 
+    $(function() {
+        $('#B1').click(function() {
+          let month0=document.getElementById("month").value;
+          let day0=document.getElementById("day").value;
+          let money0=document.getElementById("money").value;
+          let remark0=document.getElementById("remark").value;
+          var type0 = document.getElementById("type").value;
+	        console.log(type0);
+          document.getElementById("month").value = ""
+          document.getElementById("day").value = ""
+          document.getElementById("money").value = ""
+          document.getElementById("remark").value = ""
+            let mySkillStr = "<div class=\"myDiv\"><ul><li>支出<span class="+"badge bg-secondary"+">New</span></li>";
+            mySkillStr += "<li>" + "日期:" +month0+"/"+day0+ "</li>";
+            mySkillStr +="<li>"+"類型:"+type0+"</li>";
+            mySkillStr +="<li>"+"金額:"+money0+"</li>";
+            mySkillStr +="<li>"+"備註:"+remark0+"</li>";
+            mySkillStr +="<div class="+"alert alert-warning alert-dismissible fade show"+" role="+"alert"+">"+"<strong>注意!!!</strong> 你新增了一筆資料"+"<button type="+"button"+" class="+"btn-close"+" data-bs-dismiss="+"alert"+" aria-label="+"Close"
+              +"></button></div>";
+            mySkillStr += "</ul></div>";
+            $(mySkillStr).insertAfter("#mytable");
+            let money5=parseInt(money0, 10);
+            a-=money5;
+            document.getElementById('a').textContent = a; 
+        });
+        $('#B2').click(function() {
+          let month2=document.getElementById("month1").value;
+          let day2=document.getElementById("day1").value;
+          let money2=document.getElementById("money1").value;
+          let remark2=document.getElementById("remark1").value;
+          var type2 = document.getElementById("type1").value;
+	        console.log(type2);
+          document.getElementById("month1").value = ""
+          document.getElementById("day1").value = ""
+          document.getElementById("money1").value = ""
+          document.getElementById("remark1").value = ""
+          let mySkillStr = "<div class=\"myDiv\"><ul><li>收入<span class="+"badge bg-secondary"+">New</span></li>";
+            mySkillStr += "<li>" + "日期:" +month2+"/"+day2+ "</li>";
+            mySkillStr +="<li>"+"類型:"+type2+"</li>";
+            mySkillStr +="<li>"+"金額:"+money2+"</li>";
+            mySkillStr +="<li>"+"備註:"+remark2+"</li>";
+            mySkillStr +="<div class="+"alert alert-warning alert-dismissible fade show"+" role="+"alert"+">"+"<strong>注意!!!</strong> 你新增了一筆資料"+"<button type="+"button"+" class="+"btn-close"+" data-bs-dismiss="+"alert"+" aria-label="+"Close"
+              +"></button></div>";
+            mySkillStr += "</ul></div>";
+            $(mySkillStr).insertAfter("#mytable");
+            let money4=parseInt(money2, 10);
+            a=a+money4;
+            document.getElementById('a').textContent = a; 
+        });
+    });
+</script>
+</body>
+</html>
